@@ -24,3 +24,6 @@ model = tf.keras.models.Sequential([
 model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
+
+# Train the model
+history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
