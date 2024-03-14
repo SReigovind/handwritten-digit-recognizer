@@ -120,6 +120,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+mnist_data/
 .env
 .venv
 env/

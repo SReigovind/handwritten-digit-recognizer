@@ -1,15 +1,11 @@
+import numpy as np
 import tensorflow as tf
-from tensorflow.keras.datasets import mnist
 
-# Load the MNIST dataset
-(x_train, y_train), (x_test, y_test) = mnist.load_data()
-
-# Preprocess the data: Normalize pixel values to [0, 1]
-x_train, x_test = x_train / 255.0, x_test / 255.0
-
-# Reshape the data: Add a channel dimension
-x_train = x_train.reshape(-1, 28, 28, 1)
-x_test = x_test.reshape(-1, 28, 28, 1)
+# Load the preprocessed data from NumPy arrays
+x_train = np.load("mnist_data/x_train.npy")
+y_train = np.load("mnist_data/y_train.npy")
+x_test = np.load("mnist_data/x_test.npy")
+y_test = np.load("mnist_data/y_test.npy")
 
 # Define the CNN model
 model = tf.keras.models.Sequential([
@@ -35,5 +31,5 @@ test_loss, test_accuracy = model.evaluate(x_test, y_test)
 print(f"Test Loss: {test_loss}")
 print(f"Test Accuracy: {test_accuracy}")
 
-# Save the model
+# Save the model in the native Keras format with .h5 extension
 model.save("handwritten_digit_model.h5")
