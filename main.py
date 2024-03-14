@@ -34,3 +34,6 @@ test_loss, test_accuracy = model.evaluate(x_test, y_test)
 # Print the evaluation results
 print(f"Test Loss: {test_loss}")
 print(f"Test Accuracy: {test_accuracy}")
+
+# Save the model
+model.save("handwritten_digit_model.h5")
