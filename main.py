@@ -27,3 +27,10 @@ model.compile(optimizer='adam',
 
 # Train the model
 history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
+
+# Evaluate the model on the testing dataset
+test_loss, test_accuracy = model.evaluate(x_test, y_test)
+
+# Print the evaluation results
+print(f"Test Loss: {test_loss}")
+print(f"Test Accuracy: {test_accuracy}")
